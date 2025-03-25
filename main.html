@@ -3,96 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Page</title>
+    <title>Video Gallery</title>
     <style>
-        /* General Styles */
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f5f5f5;
         }
-
-        /* Navbar Styles */
+        
+        /* Navbar styles */
         nav {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
+            background-color: #2c3e50;
+            padding: 1rem 2rem;
         }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        
+        .nav-list {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
+        
+        .nav-link {
             color: white;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
-
-        nav ul li a:hover {
-            text-decoration: underline;
+        
+        .nav-link:hover {
+            background-color: #34495e;
         }
-
-        /* Content Styles */
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
+        
+        /* Main content styles */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
             text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
         }
-
-        h2 {
-            margin-bottom: 20px;
+        
+        /* Video gallery styles */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-
+        
+        .video-container {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+        
         video {
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-            border: 2px solid #333;
-            border-radius: 8px;
+            display: block;
+        }
+        
+        .video-title {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
+    <!-- Semantic Navbar -->
     <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+        <ul class="nav-list">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/about" class="nav-link">About us</a></li>
+            <li><a href="/contact" class="nav-link">Contact us</a></li>
         </ul>
     </nav>
 
-    <!-- Video Section -->
-    <div class="container">
-        <h2>3 Random Videos</h2>
-
-        <video controls>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <video controls>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-
-        <video controls>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
+    <!-- Main Content -->
+    <main>
+        <h1>3 random videos</h1>
+        
+        <div class="video-gallery">
+            <!-- Video 1 -->
+            <div class="video-container">
+                <video controls>
+                    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-title">Big Buck Bunny</div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="video-container">
+                <video controls>
+                    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-title">For Bigger Blazes</div>
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="video-container">
+                <video controls>
+                    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-title">Subaru Outback</div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
